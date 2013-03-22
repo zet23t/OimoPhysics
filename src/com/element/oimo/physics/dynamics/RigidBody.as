@@ -50,6 +50,15 @@ package com.element.oimo.physics.dynamics {
 		public static const MAX_JOINTS:uint = 512;
 		
 		/**
+		 * An id that can be set by your program. 
+		 * Advantage of numerical ids is that these are easily
+		 * serialized - if you want to map information to 
+		 * bodies, you can use ids to identify those indirectly 
+		 * with this field.
+		 */
+		public var userId: int = 0;
+		
+		/**
 		 * 剛体の種類を表します。
 		 * <strong>この変数は外部から変更しないでください。</strong>
 		 * 
