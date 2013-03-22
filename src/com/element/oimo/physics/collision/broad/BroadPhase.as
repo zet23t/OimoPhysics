@@ -56,6 +56,12 @@ package com.element.oimo.physics.collision.broad {
 			if (b1.type == RigidBody.BODY_STATIC && b2.type == RigidBody.BODY_STATIC) {
 				return false;
 			}
+			if ((b1.colliderGroupId && b2.colliderGroupId) && (b1.colliderGroupId == b2.colliderGroupId)) {
+				return false;
+			}
+			if ((b1.colliderGroupB & b2.colliderGroupA) == 0 && (b1.colliderGroupA & b2.colliderGroupB) == 0) {
+				return false;
+			}
 			var joints:Vector.<Joint>;
 			var numJoints:uint;
 			if (b1.numJoints < b2.numJoints) {

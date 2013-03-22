@@ -68,6 +68,24 @@ package com.element.oimo.physics.dynamics {
 		public var type:uint;
 		
 		/**
+		 * Two objects are checked for collisions if the bitflags
+		 * of colliderGroupA and colliderGroupB are intersecting.
+		 * if ((a.colliderGroupB & b.colliderGroupA) || (a.collderGroupA & b.colliderGroupB)) { *collides* }
+		 */
+		public var colliderGroupA: uint = 0xffffffff;
+		/**
+		 * Two objects are checked for collisions if the bitflags
+		 * of colliderGroupA and colliderGroupB are intersecting.
+		 * if ((a.colliderGroupB & b.colliderGroupA) || (a.collderGroupA & b.colliderGroupB)) { *collides* }
+		 */
+		public var colliderGroupB: uint = 0xffffffff;
+		
+		/**
+		 * Collider group id. If non-zero, bodies with equal ids are excluded from collision.
+		 */
+		public var colliderGroupId: uint = 0;
+		
+		/**
 		 * 重心のワールド座標です。
 		 */
 		public var position:Vec3;
