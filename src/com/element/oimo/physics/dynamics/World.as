@@ -396,6 +396,45 @@ package com.element.oimo.physics.dynamics {
 			performance.totalTime = getTimer() - start1;
 		}
 		
+		/**
+		 * Serializes the World. Passes each field into the write function.
+		 * @param	write Function that expects one argument, writes that 
+		 * 	argument into the stream. The order of writing must be same 
+		 * 	when reading to make sense.
+		 */
+		public function serialize(write:Function):void {
+			write(broadPhase);
+			write(constraints);
+			write(contactInfos);
+			write(contacts);
+			write(detectors);
+			write(gravity);
+			write(iteration);
+			write(joints);
+			write(numConstraints);
+			write(numContactInfos);
+			write(numContacts);
+			write(numJoints);
+			write(numPairs);
+			write(numRigidBodies);
+			write(numShapes);
+			write(pairs);
+			write(randA);
+			write(randB);
+			write(randX);
+			write(rigidBodies);
+			write(shapes);
+			write(timeStep);
+		}
+		
+		/**
+		 * Deserializes all content from serializer into this object
+		 * @param	serializer
+		 */
+		public function deserialize(read:Function):void {
+			
+		}
+		
 		private function collisionDetection():void {
 			collectContactInfos();
 			setupContacts();

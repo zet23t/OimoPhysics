@@ -344,6 +344,18 @@ package com.element.oimo.physics.collision.broad {
 			}
 		}
 		
+		public function serialize(write:Function):void {
+			write(this.numPairChecks);
+			write(this.numProxies);
+			write(this.proxyPoolAxis);
+		}
+		
+		public function deserialize(read:Function): void {
+			numPairChecks = read();
+			numProxies = read();
+			proxyPoolAxis = Vector.<Vector.<Proxy>>(read());
+		}
+		
 	}
 
 }
